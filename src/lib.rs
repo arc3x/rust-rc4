@@ -60,7 +60,7 @@ pub fn keystream(n:i32, r:i32, k:&str) -> Vec<u8> {
     let mut ip:u8 = 0;
     for i in 0..n {
         ip = ip.wrapping_add(i as u8+1);
-        j.wrapping_add(j).wrapping_add(sch[ip as usize]);
+        j = j.wrapping_add(j).wrapping_add(sch[ip as usize]);
         //swap
         let t:u8 = sch[i as usize];
         sch[i as usize]=sch[j as usize];
